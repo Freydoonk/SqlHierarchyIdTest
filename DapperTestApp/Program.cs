@@ -12,7 +12,7 @@ namespace DapperTestApp
 		{
 			Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
 
-			var connection = new SqlConnection("Data Source=.;Initial Catalog=TempDb;User Id=sa;Password=123");
+			var connection = new SqlConnection("Data Source=.;Initial Catalog=tempdb;Integrated Security=True");
 			var val = connection.Query<Microsoft.SqlServer.Types.SqlHierarchyId>("select @Path", new {Path = Microsoft.SqlServer.Types.SqlHierarchyId.Parse("/1/2/3/")}).Single();
 		}
 	}
